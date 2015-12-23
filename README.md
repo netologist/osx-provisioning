@@ -4,5 +4,11 @@
 
 ```
 ./bootstrap.sh
-ansible-playbook main.yml
+./install.sh
 ```
+
+## Todo Tasks
+
+- OMF installation
+- NeoVim installation & Configuration
+  - VimPlug installation
