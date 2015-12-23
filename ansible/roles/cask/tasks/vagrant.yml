@@ -1,0 +1,17 @@
+---
+
+  - name: Install Vagrant & Addons with Homebrew
+    homebrew:
+      name={{ item }}
+      state=present
+    with_items:
+      - vagrant
+      - vagrant-manager
+
+  - name: Install Vagrant Plugins
+    command: vagrant plugin install {{ item }}
+    with_items:
+      - vagrant-aws
+      - vagrant-digitalocean
+      - vagrant-google
+      - vagrant-rackspace

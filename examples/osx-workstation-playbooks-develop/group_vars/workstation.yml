@@ -1,0 +1,100 @@
+---
+computer_name: Hortensia
+local_host_name: Hortensia
+karabiner:
+  source_private_xml: '{{ dotfiles.dest }}/osx/keyremap4macbook/private.xml'
+  config_dir: "{{ ansible_env.HOME }}/Library/Application Support/Karabiner"
+  command: /Applications/Karabiner.app/Contents/Library/bin/karabiner
+  config:
+    -
+      name: notsave.automatically_enable_keyboard_device
+      value: 1
+    -
+      name: notsave.automatically_enable_pointing_device
+      value: 1
+    -
+      name: option.emacsmode_controlM
+      value: 1
+    -
+      name: org.aereal.limechat.move-to-previous-unread-channel
+      value: 1
+    -
+      name: org.aereal.limechat.move-down-channel
+      value: 1
+    -
+      name: org.aereal.limechat.move-up-channel
+      value: 1
+    -
+      name: org.aereal.limechat.move-to-next-unread-channel
+      value: 1
+    -
+      name: org.aereal.sequel-pro.remap-c-h-to-delete
+      value: 1
+    -
+      name: remap.space2shiftL_space_keyrepeat
+      value: 1
+    -
+      name: remap.swapcolons
+      value: 1
+    -
+      name: repeat.initial_wait
+      value: 200
+    -
+      name: repeat.wait
+      value: 35
+homebrew:
+  repo: git://github.com/homebrew/Homebrew.git
+  dest: /opt/homebrew
+  packages:
+    -
+      name: coreutils
+    -
+      name: direnv
+    -
+      name: git
+      install_options: --with-brewed-openssl --with-pcre
+    -
+      name: jq
+    -
+      name: pstree
+    -
+      name: reattach-to-user-namespace
+      install_options: --with-launchctl --with-pbcopy-and-pbpaste
+    -
+      name: ssh-copy-id
+    -
+      name: terminal-notifier
+    -
+      name: the_silver_searcher
+    -
+      name: tig
+    -
+      name: tmux
+    -
+      name: wget
+    -
+      name: zsh
+      install_options: --disable-etcdir
+    - name: autossh
+    - name: hub
+    - name: proctools
+osx_apps:
+  casks:
+    - name: alfred
+    - name: dropbox
+    - name: iterm2
+    - name: slate
+    - name: karabiner
+    - name: xquartz
+    - name: virtualbox
+    - name: boot2docker
+    - name: smcfancontrol
+ruby_versions:
+  - version: 2.2.0
+perl_versions:
+  - version: 5.20.1
+node_versions:
+  - version: 0.10.33
+dotfiles:
+  dest: ~/repos/github.com/aereal/dotfiles
+  repo: git://github.com/aereal/dotfiles.git

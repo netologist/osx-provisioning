@@ -1,0 +1,26 @@
+---
+ homebrew_taps:
+   - caskroom/versions
+   - homebrew/versions
+   - homebrew/binary
+   - caskroom/cask
+
+ homebrew_packages:
+  - { name: brew-cask }
+  - { name: git }
+  - { name: tig }
+  - { name: ctags-exuberant }
+  - { name: fish }
+  - { name: tmux }
+  - { name: tree }
+  - { name: python }
+  - { name: pstree }
+  - { name: fish }
+  - { name: direnv }
+  - { name: ack }
+  - { name: coreutils }
+  - { name: nmap }
+  - { name: neovim }  
+  - { name: vim }
+  - { name: wget,
+      install_options: enable-iri }

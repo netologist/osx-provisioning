@@ -1,0 +1,28 @@
+---
+
+- name: Install 'fish' shell
+  homebrew:
+    name={{ item }}
+    state=present
+  with_items:
+    - fish
+
+- name: Add fish to /etc/shells
+  shell: grep '^{{ osx_login_shell }}$' /etc/shells
+  register: osx_login_shell_exists_in_etc_shells
+  changed_when: false
+  failed_when: osx_login_shell_exists_in_etc_shells.rc not in [0, 1]
+
+- lineinfile: dest=/etc/shells line={{ osx_login_shell }} state=present owner=root group=wheel mode=0644
+  sudo: yes
+  when: osx_login_shell_exists_in_etc_shells.rc == 1
+
+- shell: dscl . read ~ UserShell | awk '{print $2}'
+  sudo: no
+  register: osx_login_shell_current_login_shell
+  changed_when: false
+ 
+- name: Change user shell
+  shell: chsh -s {{ osx_login_shell }}
+  sudo: no
+  when: osx_login_shell_current_login_shell.stdout != "{{ osx_login_shell }}"

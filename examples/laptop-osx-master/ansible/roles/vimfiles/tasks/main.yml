@@ -1,0 +1,11 @@
+---
+# vimfiles playbook
+
+- name: "Clone vimfiles"
+  git: repo=https://github.com/sthulb/vimfiles.git dest=/Users/{{install_user}}/.vimfiles recursive=yes
+
+- name: "Link files"
+  file: src=/Users/{{install_user}}/.vimfiles/{{ item.path }} dest=/Users/{{install_user}}/{{ item.dest }} state=link
+  with_items:
+    - { path: "vimrc.vim", dest: ".vimrc" }
+    - { path: "plugins", dest: ".vim" }

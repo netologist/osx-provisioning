@@ -1,0 +1,14 @@
+---
+# brew playbook
+
+- include: install_homebrew.yml
+
+- name: "update Homebrew"
+  homebrew: update_homebrew=yes
+
+- name: "update Homebrew"
+  homebrew: update_homebrew=yes
+
+- name: "Install Homebrew packages"
+  homebrew: name={{item.package}} install_options={{item.options | default("") }} state=latest
+  with_items: brew.packages

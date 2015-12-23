@@ -1,0 +1,27 @@
+---
+ homebrew_cask_packages:
+  - alfred
+  - appcleaner
+  - dropbox
+  - evernote
+  - google-chrome
+  - firefox
+  - iterm2
+  - virtualbox
+  - vagrant
+  - transmission
+  - dash
+  - skype
+  - imageoptim
+  - vlc
+  - the-unarchiver
+  - sketch
+  - spotify
+  - seil
+  - karabiner
+  - xquartz
+  - fluid
+  - teamviewer
+  - cheatsheet
+  - macvim
+  - screenhero

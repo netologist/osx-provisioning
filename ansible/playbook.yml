@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  roles:
+    - brew
+    - cask
+    - dotfiles

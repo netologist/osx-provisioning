@@ -1,0 +1,17 @@
+---
+# install_homebrew
+
+- name: "trash /usr/local"
+  command: mv /usr/local /tmp/old_local
+  sudo: true
+
+- name: "create Homebrew path"
+  file: path=/usr/local state=directory owner={{ install_user }} group=staff
+  sudo: true
+
+- name: "create Homebrew repo"
+  git: repo=https://github.com/Homebrew/homebrew dest=/usr/local
+
+- name: "create Homebrew cache path"
+  file: path=/Library/Caches/Homebrew state=directory owner={{ install_user }} group=staff
+  sudo: true

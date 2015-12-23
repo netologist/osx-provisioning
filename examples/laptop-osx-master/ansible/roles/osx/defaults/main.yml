@@ -1,0 +1,114 @@
+---
+# properties
+
+osx:
+  prefs:
+    # Global Preferences
+    - key: AppleScrollerPagingBehavior
+      value: 1
+      domain: NSGlobalDomain
+    - key: InitialKeyRepeat
+      value: -int 15
+      domain: NSGlobalDomain
+    - key: KeyRepeat
+      value: -int 2
+      domain: NSGlobalDomain
+    - key: com.apple.springing.enabled
+      value: -bool true
+      domain: NSGlobalDomain
+    - key: AppleKeyboardUIMode
+      value: -int 3
+      domain: NSGlobalDomain
+
+    # Trackpad
+    - key: Clicking
+      value: -bool true
+      domain: com.apple.AppleMultitouchTrackpad
+    - key: TrackpadThreeFingerHorizSwipeGesture
+      value: -int 2
+      domain: com.apple.AppleMultitouchTrackpad
+    - key: Clicking
+      value: -bool true
+      domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    - key: com.apple.mouse.tapBehavior
+      value: -int 1
+      domain: NSGlobalDomain
+
+    # Safari
+    - key: AutoFillCreditCardData
+      value: -bool false
+      domain: com.apple.Safari
+    - key: AutoFillFromAddressBook
+      value: -bool false
+      domain: com.apple.Safari
+    - key: AutoFillPasswords
+      value: -bool false
+      domain: com.apple.Safari
+    - key: AutoOpenSafeDownloads
+      value: -bool false
+      domain: com.apple.Safari
+    - key: CanPromptForPushNotifications
+      value: -bool false
+      domain: com.apple.Safari
+    - key: DidFillFavoritesBarWithBuiltInBookmarks
+      value: -bool false
+      domain: com.apple.Safari
+    - key: DownloadsClearingPolicy
+      value: -int 2
+      domain: com.apple.Safari
+    - key: HistoryAgeInDaysLimit
+      value: -int 7
+      domain: com.apple.Safari
+    - key: HomePage
+      value: -string https://google.com
+      domain: com.apple.Safari
+    - key: IncludeDevelopMenu
+      value: -bool true
+      domain: com.apple.Safari
+    - key: ShowFullURLInSmartSearchField
+      value: -bool true
+      domain: com.apple.Safari
+    - key: WebKitDefaultTextEncodingName
+      value: -string "utf-8"
+      domain: com.apple.Safari
+
+    # Finder
+    - key: NewWindowTargetPath
+      value: -string "file:///Users/{{ansible_user_id}}";
+      domain: com.apple.Finder
+    - key: FXDefaultSearchScope
+      value: -string SCcf
+      domain: com.apple.Finder
+
+    # Screensaver
+    - key: askForPasswordDelay
+      value: -int 0
+      domain: com.apple.Screensaver
+    - key: askForPassword
+      value: -int 1
+      domain: com.apple.Screensaver
+
+    # Dock
+    - key: autohide
+      value: -bool true
+      domain: com.apple.Dock
+    - key: mineffect
+      value: -string scale
+      domain: com.apple.Dock
+    - key: minimize-to-application
+      value: -bool true
+      domain: com.apple.Dock
+    - key: orientation
+      value: -string right
+      domain: com.apple.Dock
+    - key: tilesize
+      value: -int 24
+      domain: com.apple.Dock
+    - key: showAppExposeGestureEnabled
+      value: -bool true
+      domain: com.apple.Dock
+
+    # Help
+    - key: DevMode
+      value: -bool true
+      domain: com.apple.HelpViewer

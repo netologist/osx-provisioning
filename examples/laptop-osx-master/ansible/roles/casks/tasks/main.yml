@@ -1,0 +1,18 @@
+---
+# cask playbook
+
+- name: "Tap Homebrew repos"
+  homebrew_tap: name={{item}} state=present
+  with_items: casks.taps
+
+- name: "update Homebrew"
+  homebrew: update_homebrew=yes
+
+- name: "install cask package"
+  homebrew: name=brew-cask state=latest
+
+- name: "Install Casks"
+  homebrew_cask: name={{item}} state=installed
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir=/Applications"
+  with_items: casks.packages

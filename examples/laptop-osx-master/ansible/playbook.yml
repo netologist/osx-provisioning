@@ -1,0 +1,27 @@
+---
+# Playbook file
+
+- name: osx
+  hosts: laptop
+  roles:
+    - osx
+
+- name: brew
+  hosts: laptop
+  roles:
+    - brew
+
+- name: casks
+  hosts: laptop
+  roles:
+    - casks
+
+- name: dotfiles
+  hosts: laptop
+  roles:
+    - dotfiles
+
+- name: vimfiles
+  hosts: laptop
+  roles:
+    - vimfiles
