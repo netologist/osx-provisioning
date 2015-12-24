@@ -2,10 +2,10 @@
 # dotfiles playbook
 
 - name: "Clone dotfiles"
-  git: repo=https://github.com/hasanozgan/dotfiles.git dest=/Users/{{install_user}}/.dotfiles recursive=yes
+  git: repo=https://github.com/hasanozgan/dotfiles.git dest=/{{ansible_user_dir}}/.dotfiles recursive=yes 
 
 - name: "Link files"
-  file: src=/Users/{{install_user}}/.dotfiles/{{ item.path }} dest=/Users/{{install_user}}/{{ item.dest }} state=link
+  file: src={{ansible_user_dir}}/.dotfiles/{{ item.path }} dest={{ansible_user_dir}}/{{ item.dest }} state=link
   with_items:
     - { path: "tmuxconf", dest: ".tmux.conf" }  
     - { path: "ctags",     dest: ".ctags" }
@@ -14,12 +14,12 @@
     - { path: "config",    dest: ".config" }
 
 #- name: "Install font"
-#  file: src="/Users/{{install_user}}/.dotfiles/fonts/Droid Sans Mono for Powerline.otf" dest="/Users/{{install_user}}/Library/Fonts/Droid Sans Mono for Powerline.otf" state=link
+#  file: src="{{ansible_user_dir}}/.dotfiles/fonts/Droid Sans Mono for Powerline.otf" dest="/{{ansible_user_dir}}/Library/Fonts/Droid Sans Mono for Powerline.otf" state=link
 
 - name: "add shell"
   lineinfile: dest=/etc/shells line='/usr/local/bin/fish'
   sudo: true
 
 - name: "change shell"
-  command: chsh -s /usr/local/bin/fish {{install_user}}
+  command: chsh -s /usr/local/bin/fish {{ ansible_env.USER }}
   sudo: true
