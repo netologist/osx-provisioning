@@ -16,3 +16,6 @@
      state: latest
      install_options: "{{ item.install_options|default() }}"
    with_items: homebrew_packages
+
+ - include: neovim.yml
+ - include: fish.yml

@@ -1,0 +1,14 @@
+---
+# neovim
+- name: Install python neovim
+  pip: name=neovim
+
+
+- name: Creates nvim folder
+  file: path={{ansible_user_dir}}/.config/nvim state=directory
+
+# FVim Plug
+- name: Install vim plug
+  get_url:
+    url=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest={{ansible_user_dir}}/.config/nvim/autoload/plug.vim

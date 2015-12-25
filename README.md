@@ -9,6 +9,4 @@
 
 ## Todo Tasks
 
-- OMF installation
-- NeoVim installation & Configuration
-  - VimPlug installation
+- OMF installation (has a problem)

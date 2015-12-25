@@ -1,28 +1,16 @@
 ---
+- name: Mac OS X will accept fish as a default shell
+  lineinfile: dest=/etc/shells regexp=.*/fish$ line="/usr/local/bin/fish"
+  sudo: true
 
-- name: Install 'fish' shell
-  homebrew:
-    name={{ item }}
-    state=present
-  with_items:
-    - fish
+- name: "change shell"
+  command: chsh -s /usr/local/bin/fish {{ ansible_env.USER }}
+  sudo: true
 
-- name: Add fish to /etc/shells
-  shell: grep '^{{ osx_login_shell }}$' /etc/shells
-  register: osx_login_shell_exists_in_etc_shells
-  changed_when: false
-  failed_when: osx_login_shell_exists_in_etc_shells.rc not in [0, 1]
+# Oh my fish
+- stat: path={{ansible_user_dir}}/.local/share/omf
+  register: omf
 
-- lineinfile: dest=/etc/shells line={{ osx_login_shell }} state=present owner=root group=wheel mode=0644
-  sudo: yes
-  when: osx_login_shell_exists_in_etc_shells.rc == 1
-
-- shell: dscl . read ~ UserShell | awk '{print $2}'
-  sudo: no
-  register: osx_login_shell_current_login_shell
-  changed_when: false
- 
-- name: Change user shell
-  shell: chsh -s {{ osx_login_shell }}
-  sudo: no
-  when: osx_login_shell_current_login_shell.stdout != "{{ osx_login_shell }}"
+#- name: Install oh-my-fish framework
+#  shell: fish <(curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install) && exit 0 executable=/bin/bash
+#  when: omf.stat.isdir is not defined

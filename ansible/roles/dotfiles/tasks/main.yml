@@ -1,6 +1,7 @@
 ---
 # dotfiles playbook
 
+# dotfiles
 - name: "Clone dotfiles"
   git: repo=https://github.com/hasanozgan/dotfiles.git dest=/{{ansible_user_dir}}/.dotfiles recursive=yes 
 
@@ -11,15 +12,4 @@
     - { path: "ctags",     dest: ".ctags" }
     - { path: "gitconfig", dest: ".gitconfig" }
     - { path: "bashrc",    dest: ".bashrc" }
-    - { path: "config",    dest: ".config" }
-
-#- name: "Install font"
-#  file: src="{{ansible_user_dir}}/.dotfiles/fonts/Droid Sans Mono for Powerline.otf" dest="/{{ansible_user_dir}}/Library/Fonts/Droid Sans Mono for Powerline.otf" state=link
-
-- name: "add shell"
-  lineinfile: dest=/etc/shells line='/usr/local/bin/fish'
-  sudo: true
-
-- name: "change shell"
-  command: chsh -s /usr/local/bin/fish {{ ansible_env.USER }}
-  sudo: true
+    - { path: "init.vim",    dest: ".config/nvim/init.vim" }

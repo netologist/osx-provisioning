@@ -4,6 +4,7 @@
    - homebrew/versions
    - homebrew/binary
    - caskroom/cask
+   - neovim/neovim
 
  homebrew_packages:
   - { name: brew-cask }
