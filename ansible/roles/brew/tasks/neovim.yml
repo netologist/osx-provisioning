@@ -1,11 +1,10 @@
 ---
 # neovim
 - name: Install python neovim
-  pip: name=neovim
-
+  pip: name=neovim extra_args="--upgrade"
 
 - name: Creates nvim folder
-  file: path={{ansible_user_dir}}/.config/nvim state=directory
+  file: path={{ansible_user_dir}}/.config/nvim/autoload state=directory mode=0755
 
 # FVim Plug
 - name: Install vim plug

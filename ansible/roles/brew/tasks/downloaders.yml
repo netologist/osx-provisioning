@@ -1,0 +1,6 @@
+---
+- name: Install coursera-dl
+  pip: name=coursera-dl extra_args="--upgrade"
+
+- name: Install udemy-dl
+  pip: name=udemy-dl extra_args="--upgrade"

@@ -17,6 +17,7 @@
   - { name: python }
   - { name: pstree }
   - { name: fish }
+  - { name: youtube-dl }
   - { name: direnv }
   - { name: ack }
   - { name: coreutils }
