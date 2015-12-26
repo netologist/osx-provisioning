@@ -1,6 +1,7 @@
 ---
 - hosts: local
   roles:
-    - brew
+   	- brew
     - cask
     - dotfiles
+    - osx    

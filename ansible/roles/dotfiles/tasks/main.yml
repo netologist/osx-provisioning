@@ -5,11 +5,4 @@
 - name: "Clone dotfiles"
   git: repo=https://github.com/hasanozgan/dotfiles.git dest=/{{ansible_user_dir}}/.dotfiles recursive=yes 
 
-- name: "Link files"
-  file: src={{ansible_user_dir}}/.dotfiles/{{ item.path }} dest={{ansible_user_dir}}/{{ item.dest }} state=link
-  with_items:
-    - { path: "tmuxconf", dest: ".tmux.conf" }  
-    - { path: "ctags",     dest: ".ctags" }
-    - { path: "gitconfig", dest: ".gitconfig" }
-    - { path: "bashrc",    dest: ".bashrc" }
-    - { path: "init.vim",    dest: ".config/nvim/init.vim" }
+- shell: chdir={{ansible_user_dir}}/.dotfiles make -f Makefile
