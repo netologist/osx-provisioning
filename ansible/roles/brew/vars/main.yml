@@ -8,12 +8,15 @@
 
  homebrew_packages:
   - { name: brew-cask }
+  - { name: reattach-to-user-namespace }
   - { name: git }
   - { name: tig }
   - { name: ctags-exuberant }
   - { name: fish }
   - { name: tmux }
   - { name: tree }
+  - { name: golang }
+  - { name: nodejs } 
   - { name: python }
   - { name: pstree }
   - { name: fish }
@@ -24,5 +27,9 @@
   - { name: nmap }
   - { name: neovim }  
   - { name: vim }
+  - { name: docker } 
+  - { name: docker-compose }
+  - { name: docker-machine }
+  - { name: docker-swarm }
   - { name: wget,
       install_options: enable-iri }
