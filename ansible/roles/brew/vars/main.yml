@@ -31,5 +31,6 @@
   - { name: docker-compose }
   - { name: docker-machine }
   - { name: docker-swarm }
+  - { name: ntfs-3g }  
   - { name: wget,
       install_options: enable-iri }
