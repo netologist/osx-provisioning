@@ -1,0 +1,29 @@
+- name: Download Inconsolata programming font
+  get_url:
+      url: "{{ item }}"
+      dest: ~/Desktop/
+  with_items:
+      - https://github.com/google/fonts/raw/master/ofl/inconsolata/Inconsolata-Regular.ttf
+      - https://github.com/google/fonts/raw/master/ofl/inconsolata/Inconsolata-Bold.ttf
+  when: ansible_distribution == "MacOSX"
+
+- name: Copy font files into the correct directory
+  become: yes
+  copy:
+      src: "~/Desktop/{{ item }}"
+      dest: "/Library/Fonts/{{ item }}"
+      owner: root
+      group: wheel
+  with_items:
+      - Inconsolata-Regular.ttf
+      - Inconsolata-Bold.ttf
+  when: ansible_distribution == "MacOSX"
+
+- name: Remove downloaded font files
+  file:
+      dest: "~/Desktop/{{ item }}"
+      state: absent
+  with_items:
+      - Inconsolata-Regular.ttf
+      - Inconsolata-Bold.ttf
+  when: ansible_distribution == "MacOSX"

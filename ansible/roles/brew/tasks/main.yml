@@ -20,3 +20,4 @@
  - include: neovim.yml
  - include: fish.yml
  - include: downloaders.yml
+ - include: golang.yml

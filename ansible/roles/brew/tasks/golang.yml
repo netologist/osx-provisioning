@@ -1,0 +1,9 @@
+---
+- name: install golang dependencies
+  shell: "{{ item }}"
+  environment: 
+    GOPATH: "/projects/go"
+    PATH: "{{ ansible_env.PATH }}:{{ golang_dir }}/go/bin"
+  with_items:
+    - "go get -u golang.org/x/tools/cmd/..."
+    - "go get -u github.com/golang/lint/golint"

@@ -1,0 +1,2 @@
+- apm: name={{ item }} state=latest
+  with_items: atom_packages
