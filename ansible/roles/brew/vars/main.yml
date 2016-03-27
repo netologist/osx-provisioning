@@ -10,6 +10,8 @@
   - { name: brew-cask }
   - { name: reattach-to-user-namespace }
   - { name: git }
+  - { name: exercism }
+  - { name: elixir }
   - { name: tig }
   - { name: ctags-exuberant }
   - { name: fish }
