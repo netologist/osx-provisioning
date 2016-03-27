@@ -12,6 +12,7 @@
   - { name: git }
   - { name: exercism }
   - { name: elixir }
+  - { name: elm }
   - { name: tig }
   - { name: ctags-exuberant }
   - { name: fish }

@@ -49,3 +49,6 @@ atom_packages:
 - highlight-selected
 - minimap-highlight-selected
 - autoclose-html
+- language-elm
+- language-elixir
+- autocomplete-elixir
