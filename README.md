@@ -1,5 +1,8 @@
 # osx-bootstrap
 
+## Prerequest
+- XCode Installation (xcode-select --install)
+
 ## Usage
 
 ```
