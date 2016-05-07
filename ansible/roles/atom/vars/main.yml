@@ -10,6 +10,7 @@ atom_packages:
 - go-rename
 #- file-icons
 - dash
+- api-workbench
 - highlight-line
 #- gotags # gotags -tag-relative=true -R=true -sort=true -f="tags" -fields=+l .
 - atom-beautify
