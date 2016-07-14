@@ -52,4 +52,11 @@ atom_packages:
 - autoclose-html
 - language-elm
 - language-elixir
+- atom-elixir
+- atom-elixir-playground
 - autocomplete-elixir
+- build-elixir
+- elixir-cmd
+- linter-elixirc
+- phoenix-elixir-snippets
+- elm-snippets
